@@ -1,0 +1,25 @@
+COMO OBTENER EL APK SIN PROGRAMAR
+
+Este proyecto incluye una receta automática de compilación en GitHub Actions.
+Necesitarás una cuenta gratuita de GitHub y conexión a Internet.
+
+1. Entra en https://github.com y crea una cuenta o inicia sesión.
+2. Pulsa el botón + (arriba a la derecha) y elige "New repository".
+3. Pon como nombre: 1min-red-green
+4. Elige "Public" o "Private" y pulsa "Create repository".
+5. En el repositorio nuevo, pulsa "Add file" > "Upload files".
+6. Descomprime el ZIP de este proyecto en tu computadora.
+7. Sube TODO lo que hay dentro de la carpeta descomprimida. IMPORTANTE:
+   también debes subir la carpeta oculta .github, que contiene el proceso automático.
+8. Pulsa "Commit changes".
+9. Abre la pestaña "Actions" del repositorio.
+10. Entra en el proceso "Crear APK Android" y espera a que termine en verde.
+11. Abre la ejecución terminada. Abajo, en "Artifacts", pulsa
+    "1min-red-green-apk" para descargar el APK.
+12. Descomprime ese archivo descargado y copia app-debug.apk a tu Android.
+13. Abre app-debug.apk en el teléfono y acepta la instalación si Android lo solicita.
+
+NOTA:
+- La compilación automática necesita que GitHub pueda descargar dependencias.
+- El APK generado es de prueba (debug), no una versión firmada para Play Store.
+- El resultado del juego es una simulación local; no está conectado a una lotería oficial.

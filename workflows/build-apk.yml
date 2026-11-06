@@ -1,0 +1,41 @@
+name: Crear APK Android
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+
+      - name: Preparar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Preparar Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Compilar APK
+        run: |
+          chmod +x gradlew || true
+          if [ -f gradlew ]; then
+            ./gradlew assembleDebug
+          else
+            echo "Este proyecto no incluye gradlew. Se instalará Gradle para compilar."
+            sudo apt-get update
+            sudo apt-get install -y gradle
+            gradle assembleDebug
+          fi
+
+      - name: Guardar APK para descargar
+        uses: actions/upload-artifact@v4
+        with:
+          name: 1min-red-green-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
